@@ -1,11 +1,13 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
-
-      <h1>Landing Electricista</h1>
+      <Hero />
+      <Services />
     </main>
   );
 }
