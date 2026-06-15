@@ -13,9 +13,13 @@ export default function Hero() {
             y emergencias para hogares y empresas.
           </p>
 
-          <button className="mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg">
-            Solicitar Presupuesto
-          </button>
+          <a
+          href="https://wa.me/56912345678"
+          target="_blank"
+          className="inline-block mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg"
+        >
+          Solicitar Presupuesto
+        </a>
         </div>
 
         <div>
@@ -25,6 +29,8 @@ export default function Hero() {
             className="rounded-xl shadow-lg"
           />
         </div>
+
+        
 
       </div>
     </section>
