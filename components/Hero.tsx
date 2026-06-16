@@ -1,3 +1,5 @@
+import { company } from "@/data/company";
+
 export default function Hero() {
   return (
     <section className="bg-yellow-400 py-24">
@@ -5,7 +7,7 @@ export default function Hero() {
 
         <div>
           <h1 className="text-5xl font-bold">
-            Electricista Profesional 24/7
+            {company.slogan}
           </h1>
 
           <p className="mt-6 text-xl">
@@ -14,7 +16,7 @@ export default function Hero() {
           </p>
 
           <a
-          href="https://wa.me/56912345678"
+          href={`https://wa.me/${company.whatsapp}`}
           target="_blank"
           className="inline-block mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg"
         >
