@@ -1,4 +1,5 @@
 import { company } from "@/data/company";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -16,23 +17,25 @@ export default function Hero() {
           </p>
 
           <a
-          href={`https://wa.me/${company.whatsapp}`}
-          target="_blank"
-          className="inline-block mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg"
-        >
-          Solicitar Presupuesto
-        </a>
+            href={`https://wa.me/${company.whatsapp}`}
+            target="_blank"
+            className="inline-block mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg"
+          >
+            Solicitar Presupuesto
+          </a>
         </div>
 
         <div>
-          <img
-            src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800"
-            alt="Electricista trabajando"
+          <Image
+            src="/images/electrician_hero.jpg"
+            alt="Electricista profesional"
+            width={600}
+            height={500}
             className="rounded-xl shadow-lg"
           />
         </div>
 
-        
+
 
       </div>
     </section>
