@@ -48,11 +48,14 @@ export default function Contact() {
             <select
               className="w-full p-3 rounded-lg text-black"
             >
-              <option>Seleccione un servicio</option>
-              <option>Instalaciones</option>
-              <option>Mantenciones</option>
-              <option>Emergencias</option>
-              <option>Certificaciones SEC</option>
+              {company.services.map((service) => (
+                <option
+                    key={service}
+                    value={service}
+                >
+                    {service}
+                </option>
+                ))}
             </select>
 
             <textarea
