@@ -5,6 +5,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
+import TrustStats from "@/components/TrustStats";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Faq />
+      <TrustStats />
     </main>
   );
 }
