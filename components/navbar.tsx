@@ -10,7 +10,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <a
-            href="#"
+            href="#hero"
             className="flex items-center gap-3"
           >
             <div className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center">

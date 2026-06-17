@@ -56,7 +56,7 @@ export default function Contact() {
     console.log(result);
   };
   return (
-    <section className="bg-slate-900 text-white py-20">
+    <section id="contact" className="bg-slate-900 text-white py-20">
       <div className="max-w-6xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold text-center mb-12">

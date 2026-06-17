@@ -2,7 +2,7 @@ import { testimonials } from "@/data/testimonials";
 
 export default function Testimonials() {
   return (
-    <section className="py-20">
+    <section id="testimonials" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center">
           Lo Que Dicen Nuestros Clientes

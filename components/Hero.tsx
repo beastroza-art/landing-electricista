@@ -4,7 +4,7 @@ import { Phone } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="bg-slate-50 py-24">
+    <section id="hero" className="bg-slate-50 py-24">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         {/* Columna izquierda */}

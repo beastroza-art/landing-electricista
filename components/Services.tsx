@@ -4,7 +4,7 @@ import ServiceCard from "./ServiceCard";
 
 export default function Services() {
   return (
-    <section className="py-20">
+    <section id="services"className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center">
           Nuestros Servicios
