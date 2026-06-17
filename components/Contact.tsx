@@ -1,10 +1,12 @@
 "use client";
 
 import { company } from "@/data/company";
+import { useState } from "react";
 
 export default function Contact() {
+  const [error, setError] = useState("");
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
@@ -19,91 +21,127 @@ export default function Contact() {
       message: formData.get("message"),
     };
 
-    console.log(data);
-    };
-    return (
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
+    setError("");
 
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Solicita tu Presupuesto
-          </h2>
+    if (!data.name) {
+      setError("Debes ingresar tu nombre");
+      return;
+    }
 
-          <div className="grid md:grid-cols-2 gap-12">
+    if (!data.email) {
+      setError("Debes ingresar un correo electrónico");
+      return;
+    }
 
-            {/* Información */}
-            <div>
-              <h3 className="text-2xl font-bold">
-                Información de Contacto
-              </h3>
+    if (!data.service) {
+      setError("Debes seleccionar un servicio");
+      return;
+    }
 
-              <div className="mt-6 space-y-4">
-                <p>📞 {company.phone}</p>
-                <p>✉️ {company.email}</p>
-                <p>⚡ Atención 24/7</p>
-              </div>
+    if (!data.message) {
+      setError("Debes escribir un mensaje");
+      return;
+    }
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+
+    console.log(result);
+  };
+  return (
+    <section className="bg-slate-900 text-white py-20">
+      <div className="max-w-6xl mx-auto px-6">
+
+        <h2 className="text-4xl font-bold text-center mb-12">
+          Solicita tu Presupuesto
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-12">
+
+          {/* Información */}
+          <div>
+            <h3 className="text-2xl font-bold">
+              Información de Contacto
+            </h3>
+
+            <div className="mt-6 space-y-4">
+              <p>📞 {company.phone}</p>
+              <p>✉️ {company.email}</p>
+              <p>⚡ Atención 24/7</p>
             </div>
-
-            {/* Formulario */}
-            <form className="space-y-4" onSubmit={handleSubmit}>
-
-              <input
-                name="name"
-                type="text"
-                placeholder="Nombre"
-                className="w-full p-3 rounded-lg text-black"
-              />
-
-              <input
-                name="email"
-                type="email"
-                placeholder="Correo electrónico"
-                className="w-full p-3 rounded-lg text-black"
-              />
-
-              <input
-                name="phone"
-                type="tel"
-                placeholder="Teléfono"
-                className="w-full p-3 rounded-lg text-black"
-              />
-
-              <select
-                name="service"
-                className="w-full p-3 rounded-lg text-black"
-              >
-                <option value="">
-                  Seleccione un servicio
-                </option>
-
-                {company.services.map((service) => (
-                  <option
-                    key={service}
-                    value={service}
-                  >
-                    {service}
-                  </option>
-                ))}
-              </select>
-
-              <textarea
-                name="message"
-                placeholder="Describe tu necesidad"
-                rows={5}
-                className="w-full p-3 rounded-lg text-black"
-              />
-
-              <button
-                type="submit"
-                className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
-              >
-                Enviar Solicitud
-              </button>
-
-            </form>
-
           </div>
+
+          {/* Formulario */}
+          <form className="space-y-4" onSubmit={handleSubmit}>
+
+            <input
+              name="name"
+              type="text"
+              placeholder="Nombre"
+              className="w-full p-3 rounded-lg text-black"
+            />
+
+            <input
+              name="email"
+              type="email"
+              placeholder="Correo electrónico"
+              className="w-full p-3 rounded-lg text-black"
+            />
+
+            <input
+              name="phone"
+              type="tel"
+              placeholder="Teléfono"
+              className="w-full p-3 rounded-lg text-black"
+            />
+
+            <select
+              name="service"
+              className="w-full p-3 rounded-lg text-black"
+            >
+              <option value="">
+                Seleccione un servicio
+              </option>
+
+              {company.services.map((service) => (
+                <option
+                  key={service}
+                  value={service}
+                >
+                  {service}
+                </option>
+              ))}
+            </select>
+
+            <textarea
+              name="message"
+              placeholder="Describe tu necesidad"
+              rows={5}
+              className="w-full p-3 rounded-lg text-black"
+            />
+            {error && (
+              <p className="text-red-400 font-semibold">
+                {error}
+              </p>
+            )}
+            <button
+              type="submit"
+              className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
+            >
+              Enviar Solicitud
+            </button>
+
+          </form>
+
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}
