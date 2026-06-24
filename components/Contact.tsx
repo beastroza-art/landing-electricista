@@ -2,6 +2,11 @@
 
 import { company } from "@/data/company";
 import { useState } from "react";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaBolt,
+} from "react-icons/fa";
 
 export default function Contact() {
   const [error, setError] = useState("");
@@ -55,56 +60,168 @@ export default function Contact() {
 
     console.log(result);
   };
+
   return (
-    <section id="contact" className="bg-slate-900 text-white py-20">
+    <section
+      id="contact"
+      className="bg-slate-900 text-white py-24"
+    >
       <div className="max-w-6xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Solicita tu Presupuesto
-        </h2>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold">
+            Solicita tu Presupuesto
+          </h2>
 
-        <div className="grid md:grid-cols-2 gap-12">
+          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
+            Cuéntanos tu problema eléctrico y te
+            responderemos lo antes posible.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Información */}
-          <div>
+          <div className="space-y-6">
+
             <h3 className="text-2xl font-bold">
               Información de Contacto
             </h3>
 
-            <div className="mt-6 space-y-4">
-              <p>📞 {company.phone}</p>
-              <p>✉️ {company.email}</p>
-              <p>⚡ Atención 24/7</p>
+            <p className="text-slate-400">
+              Atención profesional para hogares,
+              oficinas y empresas.
+            </p>
+
+            <div className="space-y-4">
+
+              <div className="flex gap-4 bg-white/5 border border-white/10 p-5 rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-yellow-400 text-slate-900 flex items-center justify-center">
+                  <FaPhone />
+                </div>
+
+                <div>
+                  <p className="font-bold">
+                    Teléfono
+                  </p>
+
+                  <p className="text-slate-400">
+                    {company.phone}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 bg-white/5 border border-white/10 p-5 rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-yellow-400 text-slate-900 flex items-center justify-center">
+                  <FaEnvelope />
+                </div>
+
+                <div>
+                  <p className="font-bold">
+                    Correo
+                  </p>
+
+                  <p className="text-slate-400">
+                    {company.email}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 bg-white/5 border border-white/10 p-5 rounded-2xl">
+                <div className="w-12 h-12 rounded-xl bg-yellow-400 text-slate-900 flex items-center justify-center">
+                  <FaBolt />
+                </div>
+
+                <div>
+                  <p className="font-bold">
+                    Emergencias
+                  </p>
+
+                  <p className="text-slate-400">
+                    Atención 24/7
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
           {/* Formulario */}
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form
+            className="
+              bg-white
+              p-8
+              rounded-3xl
+              shadow-2xl
+              space-y-4
+            "
+            onSubmit={handleSubmit}
+          >
 
             <input
               name="name"
               type="text"
               placeholder="Nombre"
-              className="w-full p-3 rounded-lg text-black"
+              className="
+                w-full
+                p-4
+                rounded-xl
+                border
+                border-slate-200
+                text-slate-900
+                focus:outline-none
+                focus:ring-2
+                focus:ring-yellow-400
+              "
             />
 
             <input
               name="email"
               type="email"
               placeholder="Correo electrónico"
-              className="w-full p-3 rounded-lg text-black"
+              className="
+                w-full
+                p-4
+                rounded-xl
+                border
+                border-slate-200
+                text-slate-900
+                focus:outline-none
+                focus:ring-2
+                focus:ring-yellow-400
+              "
             />
 
             <input
               name="phone"
               type="tel"
               placeholder="Teléfono"
-              className="w-full p-3 rounded-lg text-black"
+              className="
+                w-full
+                p-4
+                rounded-xl
+                border
+                border-slate-200
+                text-slate-900
+                focus:outline-none
+                focus:ring-2
+                focus:ring-yellow-400
+              "
             />
 
             <select
               name="service"
-              className="w-full p-3 rounded-lg text-black"
+              className="
+                w-full
+                p-4
+                rounded-xl
+                border
+                border-slate-200
+                text-slate-900
+                focus:outline-none
+                focus:ring-2
+                focus:ring-yellow-400
+              "
             >
               <option value="">
                 Seleccione un servicio
@@ -124,16 +241,38 @@ export default function Contact() {
               name="message"
               placeholder="Describe tu necesidad"
               rows={5}
-              className="w-full p-3 rounded-lg text-black"
+              className="
+                w-full
+                p-4
+                rounded-xl
+                border
+                border-slate-200
+                text-slate-900
+                focus:outline-none
+                focus:ring-2
+                focus:ring-yellow-400
+              "
             />
+
             {error && (
-              <p className="text-red-400 font-semibold">
+              <p className="text-red-500 font-semibold text-sm">
                 {error}
               </p>
             )}
+
             <button
               type="submit"
-              className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:scale-105 transition"
+              className="
+                w-full
+                bg-yellow-400
+                hover:bg-yellow-500
+                text-slate-900
+                font-bold
+                py-4
+                rounded-xl
+                transition
+                hover:-translate-y-1
+              "
             >
               Enviar Solicitud
             </button>

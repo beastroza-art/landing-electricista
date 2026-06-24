@@ -3,6 +3,7 @@ import {
   FaTools,
   FaShieldAlt,
   FaHome,
+  FaClock,
 } from "react-icons/fa";
 
 type ServiceCardProps = {
@@ -33,8 +34,8 @@ export default function ServiceCard({
       case "home":
         return <FaHome />;
 
-      case "emergency":
-        return <FaBolt />;
+      case "clock":
+        return <FaClock />;
 
       default:
         return <FaBolt />;
@@ -52,11 +53,10 @@ export default function ServiceCard({
         transition-all
         duration-300
         hover:-translate-y-2
-        hover:shadow-xl
-        ${
-          emergency
-            ? "border-yellow-400"
-            : "border-slate-200"
+        hover:border-slate-900
+        ${emergency
+          ? "border-yellow-400"
+          : "border-slate-200"
         }
       `}
     >
@@ -111,15 +111,19 @@ export default function ServiceCard({
         {description}
       </p>
 
-      <div className="
-        mt-6
-        pt-4
-        border-t
-        border-slate-100
-        text-sm
-        font-bold
-        text-slate-800
-      ">
+      <div
+        className="
+    mt-6
+    pt-4
+    border-t
+    border-slate-100
+    text-sm
+    font-bold
+    text-slate-800
+    group-hover:text-yellow-500
+    transition
+  "
+      >
         Más información →
       </div>
     </div>
