@@ -1,20 +1,26 @@
+export const testimonialsContent = {
+  tagline: "Testimonios",
+  title: "Lo Que Dicen Nuestros Clientes",
+  description: "La satisfacción y seguridad de quienes confían en nosotros es nuestro mayor respaldo técnico.",
+};
+
 export const testimonials = [
   {
     name: "Juan Pérez",
-    text: "Excelente servicio, llegaron rápido y solucionaron el problema el mismo día.",
+    text: "Excelente servicio. Llegaron súper rápido ante un cortocircuito en casa y lo solucionaron todo en un par de horas de forma muy profesional.",
     initials: "JP",
-    role: "Cliente Verificado",
+    role: "Cliente Residencial",
   },
   {
     name: "María González",
-    text: "Muy profesionales y transparentes con el presupuesto.",
+    text: "Muy profesionales y transparentes con el presupuesto. Hicieron la regularización SEC de nuestro local comercial sin inconvenientes.",
     initials: "MG",
-    role: "Emergencia 24/7",
+    role: "Local Comercial",
   },
   {
     name: "Carlos Rojas",
-    text: "Instalaron toda la iluminación de mi casa de forma impecable.",
+    text: "Instalaron toda la iluminación LED y tableros de mi casa nueva. Impecable el trabajo, limpio y ordenado. Totalmente recomendados.",
     initials: "CR",
-    role: "Cliente Residencial",
+    role: "Instalación Nueva",
   },
 ];

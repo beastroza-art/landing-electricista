@@ -1,3 +1,9 @@
+export const statsContent = {
+  tagline: "Nuestro Respaldo",
+  title: "Números que Hablan por Nosotros",
+  description: "La confianza depositada por cientos de clientes en nuestro trabajo diario se refleja en los resultados.",
+};
+
 export const stats = [
   {
     value: "+500",
@@ -9,10 +15,10 @@ export const stats = [
   },
   {
     value: "24/7",
-    label: "Atención",
+    label: "Atención de Emergencias",
   },
   {
     value: "100%",
-    label: "Garantía",
+    label: "Garantía de Satisfacción",
   },
 ];

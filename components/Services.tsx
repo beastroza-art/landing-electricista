@@ -1,38 +1,27 @@
-import { services } from "@/data/services";
+import { services, servicesContent } from "@/data/services";
 import ServiceCard from "./ServiceCard";
+import SectionContainer from "./ui/SectionContainer";
+import SectionHeader from "./ui/SectionHeader";
 
 export default function Services() {
   return (
-    <section
-      id="services"
-      className="py-24 bg-slate-50"
-    >
-      <div className="max-w-6xl mx-auto px-6">
+    <SectionContainer id="services" background="light">
+      <SectionHeader
+        title={servicesContent.title}
+        description={servicesContent.description}
+      />
 
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-slate-900">
-            Nuestros Servicios
-          </h2>
-
-          <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
-            Soluciones eléctricas profesionales para
-            hogares y empresas.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              emergency={service.emergency}
-            />
-          ))}
-        </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <ServiceCard
+            key={service.id}
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+            emergency={service.emergency}
+          />
+        ))}
       </div>
-    </section>
+    </SectionContainer>
   );
 }

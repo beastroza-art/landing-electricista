@@ -1,83 +1,64 @@
 "use client";
 
 import { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-import { faq } from "@/data/faq";
+import { faq, faqContent } from "@/data/faq";
+import SectionContainer from "./ui/SectionContainer";
+import SectionHeader from "./ui/SectionHeader";
+import DynamicIcon from "./ui/DynamicIcon";
+import Card from "./ui/Card";
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="max-w-4xl mx-auto px-6">
+    <SectionContainer id="faq" background="light">
+      <SectionHeader
+        title={faqContent.title}
+        description={faqContent.description}
+      />
 
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-slate-900">
-            Preguntas Frecuentes
-          </h2>
+      <div className="max-w-3xl mx-auto space-y-4">
+        {faq.map((item, index) => {
+          const isOpen = openIndex === index;
 
-          <p className="mt-4 text-slate-500">
-            Resolvemos las dudas más comunes de nuestros clientes.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {faq.map((item, index) => {
-            const isOpen = openIndex === index;
-
-            return (
-              <div
-                key={item.question}
-                className="
-                  bg-white
-                  border
-                  border-slate-200
-                  rounded-2xl
-                  shadow-sm
-                  overflow-hidden
-                "
+          return (
+            <Card
+              key={item.question}
+              borderVariant={isOpen ? "highlight" : "default"}
+              hoverEffect={false}
+              className="p-0 sm:p-0 overflow-hidden" // Resets inner card padding for custom accordion spacing
+            >
+              <button
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                className="w-full flex items-center justify-between p-6 text-left cursor-pointer outline-none focus:bg-slate-50 transition-colors select-none"
+                aria-expanded={isOpen}
               >
-                <button
-                  onClick={() =>
-                    setOpenIndex(
-                      isOpen ? null : index
-                    )
-                  }
-                  className="
-                    w-full
-                    flex
-                    items-center
-                    justify-between
-                    p-6
-                    text-left
-                  "
-                >
-                  <h3 className="font-bold text-lg text-slate-900">
-                    {item.question}
-                  </h3>
+                <h3 className="font-extrabold text-base sm:text-lg text-slate-900 pr-4">
+                  {item.question}
+                </h3>
 
-                  <div className="text-yellow-500">
-                    {isOpen ? (
-                      <FaMinus />
-                    ) : (
-                      <FaPlus />
-                    )}
-                  </div>
-                </button>
+                <div className="text-yellow-500 shrink-0">
+                  <DynamicIcon name={isOpen ? "minus" : "plus"} size={14} />
+                </div>
+              </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6">
-                    <p className="text-slate-500 leading-relaxed">
-                      {item.answer}
-                    </p>
-                  </div>
-                )}
+              {/* Accordion Content with transition spacing */}
+              <div
+                className={`
+                  transition-all duration-300 ease-in-out overflow-hidden
+                  ${isOpen ? "max-h-60 border-t border-slate-100 opacity-100" : "max-h-0 opacity-0 pointer-events-none"}
+                `}
+              >
+                <div className="p-6 bg-slate-50/50">
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    {item.answer}
+                  </p>
+                </div>
               </div>
-            );
-          })}
-        </div>
-
+            </Card>
+          );
+        })}
       </div>
-    </section>
+    </SectionContainer>
   );
 }

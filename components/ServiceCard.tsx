@@ -1,10 +1,7 @@
-import {
-  FaBolt,
-  FaTools,
-  FaShieldAlt,
-  FaHome,
-  FaClock,
-} from "react-icons/fa";
+import Card from "./ui/Card";
+import IconBox from "./ui/IconBox";
+import Badge from "./ui/Badge";
+import DynamicIcon from "./ui/DynamicIcon";
 
 type ServiceCardProps = {
   title: string;
@@ -19,113 +16,41 @@ export default function ServiceCard({
   icon,
   emergency,
 }: ServiceCardProps) {
-
-  const getIcon = () => {
-    switch (icon) {
-      case "bolt":
-        return <FaBolt />;
-
-      case "tools":
-        return <FaTools />;
-
-      case "shield":
-        return <FaShieldAlt />;
-
-      case "home":
-        return <FaHome />;
-
-      case "clock":
-        return <FaClock />;
-
-      default:
-        return <FaBolt />;
-    }
-  };
-
   return (
-    <div
-      className={`
-        group
-        bg-white
-        p-6
-        rounded-2xl
-        border
-        transition-all
-        duration-300
-        hover:-translate-y-2
-        hover:border-slate-900
-        ${emergency
-          ? "border-yellow-400"
-          : "border-slate-200"
-        }
-      `}
+    <Card
+      borderVariant={emergency ? "highlight" : "default"}
+      hoverEffect={true}
+      className="flex flex-col h-full justify-between"
     >
-      <div className="flex justify-between mb-5">
+      <div>
+        {/* Top Header Row of the Card */}
+        <div className="flex justify-between items-start mb-6">
+          <IconBox variant="yellow" size="md">
+            <DynamicIcon name={icon} />
+          </IconBox>
 
-        <div className="
-          w-12
-          h-12
-          rounded-xl
-          bg-yellow-100
-          text-yellow-600
-          flex
-          items-center
-          justify-center
-          text-xl
-          group-hover:scale-110
-          transition
-        ">
-          {getIcon()}
+          {emergency && (
+            <Badge variant="warning">
+              24/7
+            </Badge>
+          )}
         </div>
 
-        {emergency && (
-          <span className="
-            bg-yellow-400
-            text-slate-900
-            text-xs
-            font-bold
-            px-2
-            py-1
-            rounded-full
-          ">
-            24/7
-          </span>
-        )}
+        {/* Card Title & Description */}
+        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 group-hover:text-yellow-500 transition-colors duration-300">
+          {title}
+        </h3>
+
+        <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
+          {description}
+        </p>
       </div>
 
-      <h3 className="
-        text-xl
-        font-bold
-        text-slate-900
-        group-hover:text-yellow-500
-        transition
-      ">
-        {title}
-      </h3>
-
-      <p className="
-        mt-3
-        text-slate-500
-        leading-relaxed
-      ">
-        {description}
-      </p>
-
-      <div
-        className="
-    mt-6
-    pt-4
-    border-t
-    border-slate-100
-    text-sm
-    font-bold
-    text-slate-800
-    group-hover:text-yellow-500
-    transition
-  "
-      >
-        Más información →
+      {/* Card Footer Link */}
+      <div className="mt-8 pt-4 border-t border-slate-100 text-sm font-bold text-slate-800 group-hover:text-yellow-500 transition-colors duration-300 flex items-center gap-1">
+        <span>Más información</span>
+        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
       </div>
-    </div>
+    </Card>
   );
 }
