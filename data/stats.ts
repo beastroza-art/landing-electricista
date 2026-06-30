@@ -1,10 +1,12 @@
+import { StatItem } from "@/types";
+
 export const statsContent = {
   tagline: "Nuestro Respaldo",
   title: "Números que Hablan por Nosotros",
   description: "La confianza depositada por cientos de clientes en nuestro trabajo diario se refleja en los resultados.",
 };
 
-export const stats = [
+export const stats: StatItem[] = [
   {
     value: "+500",
     label: "Proyectos Realizados",

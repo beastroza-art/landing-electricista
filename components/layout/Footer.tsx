@@ -1,5 +1,6 @@
 import { company } from "@/data/company";
-import DynamicIcon from "./ui/DynamicIcon";
+import DynamicIcon from "@/components/ui/DynamicIcon";
+import Logo from "@/components/layout/Logo";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,23 +13,10 @@ export default function Footer() {
           
           {/* Logo y descripción */}
           <div className="max-w-sm">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center shadow-md">
-                <DynamicIcon name={company.logo.icon} className="text-slate-900" size={18} />
-              </div>
-
-              <div>
-                <h3 className="font-extrabold text-xl leading-none text-white">
-                  {company.name}
-                </h3>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-1">
-                  {company.logo.tagline}
-                </p>
-              </div>
-            </div>
+            <Logo />
 
             <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-              Servicios eléctricos residenciales y comerciales de alta calidad. Mantenciones, instalaciones y atención de emergencias con técnicos autorizados SEC.
+              Servicios profesionales de alta calidad. Mantenciones, instalaciones y atención de emergencias con técnicos autorizados y certificados.
             </p>
           </div>
 
@@ -40,22 +28,22 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 <li>
-                  <a href="#hero" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
+                  <a href="#hero" className="text-slate-400 hover:text-accent transition-colors text-sm sm:text-base">
                     Inicio
                   </a>
                 </li>
                 <li>
-                  <a href="#services" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
+                  <a href="#services" className="text-slate-400 hover:text-accent transition-colors text-sm sm:text-base">
                     Servicios
                   </a>
                 </li>
                 <li>
-                  <a href="#process" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
+                  <a href="#process" className="text-slate-400 hover:text-accent transition-colors text-sm sm:text-base">
                     Proceso
                   </a>
                 </li>
                 <li>
-                  <a href="#testimonials" className="text-slate-400 hover:text-yellow-400 transition-colors text-sm sm:text-base">
+                  <a href="#testimonials" className="text-slate-400 hover:text-accent transition-colors text-sm sm:text-base">
                     Testimonios
                   </a>
                 </li>
@@ -69,14 +57,14 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2.5 text-sm sm:text-base text-slate-400">
                 <li className="flex items-center gap-2">
-                  <DynamicIcon name="phone" className="text-yellow-400 shrink-0" size={14} />
-                  <a href={`tel:${company.phone}`} className="hover:text-yellow-400 transition-colors">
+                  <DynamicIcon name="phone" className="text-accent shrink-0" size={14} />
+                  <a href={`tel:${company.phone}`} className="hover:text-accent transition-colors">
                     {company.phone}
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <DynamicIcon name="envelope" className="text-yellow-400 shrink-0" size={14} />
-                  <a href={`mailto:${company.email}`} className="hover:text-yellow-400 transition-colors">
+                  <DynamicIcon name="envelope" className="text-accent shrink-0" size={14} />
+                  <a href={`mailto:${company.email}`} className="hover:text-accent transition-colors">
                     {company.email}
                   </a>
                 </li>

@@ -29,11 +29,11 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-yellow-400 hover:bg-yellow-500 text-slate-900 border border-transparent focus:ring-2 focus:ring-yellow-400/50 outline-none",
+      "bg-accent hover:bg-accent-hover text-accent-text border border-transparent focus:ring-2 focus:ring-accent/50 outline-none",
     secondary:
-      "bg-slate-900 hover:bg-slate-800 text-white border border-transparent focus:ring-2 focus:ring-slate-900/50 outline-none",
+      "bg-slate-900 hover:bg-slate-800 text-white border border-transparent focus:ring-2 focus:ring-slate-900/50 outline-none dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/10",
     outline:
-      "bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 focus:ring-2 focus:ring-slate-300/50 outline-none",
+      "bg-transparent hover:bg-slate-100 text-slate-900 border border-slate-300 focus:ring-2 focus:ring-slate-300/50 outline-none dark:text-white dark:hover:bg-slate-800 dark:border-slate-700",
     dark:
       "bg-white/10 hover:bg-white/20 text-white border border-white/10 focus:ring-2 focus:ring-white/20 outline-none",
   };

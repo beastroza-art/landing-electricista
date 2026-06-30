@@ -1,9 +1,11 @@
+import { FaqItem } from "@/types";
+
 export const faqContent = {
   title: "Preguntas Frecuentes",
   description: "Resolvemos las dudas y consultas más comunes sobre nuestros servicios eléctricos residenciales y comerciales.",
 };
 
-export const faq = [
+export const faq: FaqItem[] = [
   {
     question: "¿Atienden emergencias eléctricas en horario nocturno o fines de semana?",
     answer: "Sí, disponemos de técnicos de guardia listos para atender emergencias las 24 horas del día, los 7 días de la semana.",

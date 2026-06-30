@@ -1,10 +1,12 @@
+import { ProcessStep } from "@/types";
+
 export const processContent = {
   tagline: "Nuestro Proceso",
   title: "Cómo Trabajamos",
   description: "Un proceso claro, rápido y transparente desde el primer contacto hasta la entrega del proyecto.",
 };
 
-export const process = [
+export const process: ProcessStep[] = [
   {
     step: 1,
     title: "Consulta Inicial",

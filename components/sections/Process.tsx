@@ -1,7 +1,7 @@
 import { process, processContent } from "@/data/process";
-import Card from "./ui/Card";
-import SectionContainer from "./ui/SectionContainer";
-import SectionHeader from "./ui/SectionHeader";
+import Card from "@/components/ui/Card";
+import SectionContainer from "@/components/ui/SectionContainer";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function Process() {
   return (
@@ -25,15 +25,15 @@ export default function Process() {
               className="text-center flex flex-col items-center h-full"
             >
               {/* Círculo indicador del Paso */}
-              <div className="w-14 h-14 rounded-full bg-yellow-400 text-slate-900 flex items-center justify-center text-xl font-extrabold shadow-md mb-6 shrink-0 transition-transform duration-300 group-hover:scale-110">
+              <div className="w-14 h-14 rounded-full bg-accent text-accent-text flex items-center justify-center text-xl font-extrabold shadow-md mb-6 shrink-0 transition-transform duration-300 group-hover:scale-110">
                 {item.step}
               </div>
 
-              <h3 className="text-xl font-extrabold text-slate-900">
+              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
                 {item.title}
               </h3>
 
-              <p className="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
                 {item.description}
               </p>
             </Card>

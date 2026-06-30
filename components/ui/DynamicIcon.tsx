@@ -10,8 +10,16 @@ import {
   FaCheck,
   FaPlus,
   FaMinus,
+  FaHeart,
+  FaStethoscope,
+  FaBalanceScale,
+  FaWrench,
+  FaCalendarAlt,
+  FaUser,
+  FaMapMarkerAlt,
+  FaWhatsapp,
 } from "react-icons/fa";
-import { Zap, Phone, Menu, X } from "lucide-react";
+import { Zap, Phone, Menu, X, ArrowRight } from "lucide-react";
 
 interface DynamicIconProps {
   name: string;
@@ -25,6 +33,9 @@ export default function DynamicIcon({
   size,
 }: DynamicIconProps) {
   switch (name.toLowerCase()) {
+    case "whatsapp":
+      return <FaWhatsapp className={className} size={size} />;
+    // Core Utilities
     case "bolt":
       return <FaBolt className={className} size={size} />;
     case "tools":
@@ -55,23 +66,26 @@ export default function DynamicIcon({
       return <Menu className={className} size={size} />;
     case "x":
       return <X className={className} size={size} />;
+    case "arrow-right":
+      return <ArrowRight className={className} size={size} />;
+
+    // Rebranding Utilities (Medical, Legal, Professional)
+    case "heart":
+      return <FaHeart className={className} size={size} />;
+    case "stethoscope":
+      return <FaStethoscope className={className} size={size} />;
+    case "scale":
+      return <FaBalanceScale className={className} size={size} />;
+    case "wrench":
+      return <FaWrench className={className} size={size} />;
+    case "calendar":
+      return <FaCalendarAlt className={className} size={size} />;
+    case "user":
+      return <FaUser className={className} size={size} />;
+    case "map-marker":
+      return <FaMapMarkerAlt className={className} size={size} />;
+
     default:
       return <FaBolt className={className} size={size} />;
   }
 }
-export type IconName =
-  | "bolt"
-  | "tools"
-  | "shield"
-  | "home"
-  | "clock"
-  | "phone"
-  | "envelope"
-  | "star"
-  | "check"
-  | "plus"
-  | "minus"
-  | "zap"
-  | "phone-lucide"
-  | "menu"
-  | "x";

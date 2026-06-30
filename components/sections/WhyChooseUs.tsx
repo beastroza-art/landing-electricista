@@ -1,9 +1,9 @@
 import { benefits, benefitsContent } from "@/data/benefits";
-import Card from "./ui/Card";
-import IconBox from "./ui/IconBox";
-import DynamicIcon from "./ui/DynamicIcon";
-import SectionContainer from "./ui/SectionContainer";
-import SectionHeader from "./ui/SectionHeader";
+import Card from "@/components/ui/Card";
+import IconBox from "@/components/ui/IconBox";
+import DynamicIcon from "@/components/ui/DynamicIcon";
+import SectionContainer from "@/components/ui/SectionContainer";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function WhyChooseUs() {
   return (

@@ -1,9 +1,11 @@
+import { BenefitItem } from "@/types";
+
 export const benefitsContent = {
   title: "¿Por Qué Elegirnos?",
   description: "Brindamos soluciones eléctricas seguras, rápidas y garantizadas para hogares y empresas.",
 };
 
-export const benefits = [
+export const benefits: BenefitItem[] = [
   {
     title: "Respuesta Rápida",
     description: "Atención rápida para emergencias eléctricas.",

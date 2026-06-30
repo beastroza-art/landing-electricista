@@ -2,7 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a; /* Sleek slate-900 foreground */
+  --foreground: #0f172a; /* Slate-900 */
+
+  /* Bright, Saturated Accent Theme Colors (Vibrant Yellow Brand) */
+  --accent: #facc15; /* yellow-400 (Vibrant brand color) */
+  --accent-hover: #eab308; /* yellow-500 */
+  --accent-text: #0f172a; /* Slate-900 for solid contrast */
+  --accent-light: #fef08a; /* yellow-200 (solid rich light yellow background) */
+  --accent-light-border: #fde047; /* yellow-300 */
+  --accent-light-text: #854d0e; /* yellow-800 for high-contrast legible text */
 }
 
 @theme inline {
@@ -10,12 +18,28 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Accent mappings */
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-text: var(--accent-text);
+  --color-accent-light: var(--accent-light);
+  --color-accent-light-border: var(--accent-light-border);
+  --color-accent-light-text: var(--accent-light-text);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b1329; /* Deep blue-slate dark background */
+    --background: #0b1329; /* Slate dark background */
     --foreground: #f8fafc;
+
+    /* Accent Theme Colors Dark Mode */
+    --accent: #facc15; /* yellow-400 */
+    --accent-hover: #eab308; /* yellow-500 */
+    --accent-text: #0f172a;
+    --accent-light: rgba(250, 204, 21, 0.15); /* yellow-400/15 */
+    --accent-light-border: rgba(250, 204, 21, 0.35); /* yellow-400/35 */
+    --accent-light-text: #fef08a; /* yellow-200 */
   }
 }
 
@@ -26,7 +50,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Dynamic styling scrollbar */
+/* Custom Webkit scrollbars */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -39,4 +63,48 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* --- Native CSS Keyframe Animations --- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.15);
+    border-color: rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.45);
+    border-color: rgba(250, 204, 21, 0.85);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
 }

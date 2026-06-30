@@ -30,6 +30,23 @@ export const metadata: Metadata = {
     "electricista autorizado",
   ],
   authors: [{ name: company.name }],
+  metadataBase: new URL("https://electricpro.cl"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: company.metadata.title,
+    description: company.metadata.description,
+    url: "https://electricpro.cl",
+    siteName: company.name,
+    locale: "es_CL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: company.metadata.title,
+    description: company.metadata.description,
+  },
 };
 
 export default function RootLayout({
@@ -42,7 +59,7 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col text-slate-900 bg-white font-sans">
+      <body className="min-h-full flex flex-col text-slate-900 bg-white dark:bg-slate-950 dark:text-slate-100 font-sans">
         {children}
       </body>
     </html>

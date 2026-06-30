@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface BadgeProps {
   children: ReactNode;
-  variant?: "success" | "warning" | "info" | "dark" | "outline";
+  variant?: "success" | "warning" | "info" | "dark" | "outline" | "accent";
   className?: string;
 }
 
@@ -12,11 +12,12 @@ export default function Badge({
   className = "",
 }: BadgeProps) {
   const styles = {
-    success: "bg-green-500/10 text-green-500 border border-green-500/20",
-    warning: "bg-yellow-400/10 text-yellow-500 border border-yellow-400/20",
-    info: "bg-blue-500/10 text-blue-500 border border-blue-500/20",
-    dark: "bg-slate-900 text-yellow-400 border border-slate-800",
-    outline: "bg-transparent text-slate-600 border border-slate-200",
+    success: "bg-green-500/10 text-green-600 border-green-500/20 dark:text-green-400",
+    warning: "bg-amber-500/10 text-amber-700 border-amber-500/20 dark:text-amber-300",
+    info: "bg-blue-500/10 text-blue-600 border-blue-500/20 dark:text-blue-400",
+    dark: "bg-slate-950 text-accent border-slate-800",
+    outline: "bg-transparent text-slate-600 border-slate-200 dark:text-slate-400 dark:border-slate-800",
+    accent: "bg-accent-light text-accent-light-text border-accent-light-border",
   };
 
   return (

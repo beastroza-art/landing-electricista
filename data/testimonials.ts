@@ -1,10 +1,12 @@
+import { TestimonialItem } from "@/types";
+
 export const testimonialsContent = {
   tagline: "Testimonios",
   title: "Lo Que Dicen Nuestros Clientes",
   description: "La satisfacción y seguridad de quienes confían en nosotros es nuestro mayor respaldo técnico.",
 };
 
-export const testimonials = [
+export const testimonials: TestimonialItem[] = [
   {
     name: "Juan Pérez",
     text: "Excelente servicio. Llegaron súper rápido ante un cortocircuito en casa y lo solucionaron todo en un par de horas de forma muy profesional.",

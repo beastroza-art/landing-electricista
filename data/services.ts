@@ -1,9 +1,11 @@
+import { ServiceItem } from "@/types";
+
 export const servicesContent = {
   title: "Nuestros Servicios",
   description: "Soluciones eléctricas profesionales e integrales para hogares, oficinas y empresas.",
 };
 
-export const services = [
+export const services: ServiceItem[] = [
   {
     id: "instalaciones",
     title: "Instalaciones",

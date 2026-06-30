@@ -1,7 +1,7 @@
 import { services, servicesContent } from "@/data/services";
 import ServiceCard from "./ServiceCard";
-import SectionContainer from "./ui/SectionContainer";
-import SectionHeader from "./ui/SectionHeader";
+import SectionContainer from "@/components/ui/SectionContainer";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function Services() {
   return (

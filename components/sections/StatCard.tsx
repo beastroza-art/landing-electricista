@@ -1,4 +1,4 @@
-import Card from "./ui/Card";
+import Card from "@/components/ui/Card";
 
 type StatCardProps = {
   value: string;
@@ -15,7 +15,7 @@ export default function StatCard({
       hoverEffect={true}
       className="text-center backdrop-blur-sm"
     >
-      <h3 className="text-4xl md:text-5xl font-extrabold text-yellow-400 tracking-tight">
+      <h3 className="text-4xl md:text-5xl font-extrabold text-accent tracking-tight">
         {value}
       </h3>
 

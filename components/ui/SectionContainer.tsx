@@ -14,9 +14,9 @@ export default function SectionContainer({
   children,
 }: SectionContainerProps) {
   const bgClasses = {
-    white: "bg-white text-slate-900",
-    light: "bg-slate-50 text-slate-900",
-    dark: "bg-slate-900 text-white",
+    white: "bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100",
+    light: "bg-slate-50 text-slate-900 dark:bg-slate-900/40 dark:text-slate-100",
+    dark: "bg-slate-900 text-white dark:bg-slate-955/80 dark:text-white", // Deep dark section
     transparent: "bg-transparent",
   };
 

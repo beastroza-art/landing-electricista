@@ -31,7 +31,7 @@ export default function SectionHeader({
             tracking-widest
             block
             mb-3
-            ${dark ? "text-yellow-400" : "text-yellow-500"}
+            ${dark ? "text-accent" : "text-accent-hover"}
           `}
         >
           {tagline}
